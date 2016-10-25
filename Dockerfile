@@ -1,12 +1,16 @@
 FROM ubuntu:xenial
 MAINTAINER Alex Price <alexp@fishvision.com>
+ENV DEBIAN_FRONTEND noninteractive
+
+# Remove sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install packages
-ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
-RUN apt-get -y install wget curl git zip unzip libxml2-dev
-RUN apt-get update && \
-    apt-get -y install \
+RUN apt-get -y install wget curl git zip unzip libxml2-dev build-essential libssl-dev
+
+# Install PHP
+RUN apt-get -y install \
     php7.0 \
     php7.0-cgi \
     php7.0-cli \
@@ -32,6 +36,16 @@ RUN apt-get update && \
     php7.0-mbstring \
     php7.0-zip \
     php-xdebug
+
+# Clean apt
 RUN apt-get clean
+
+# Install node
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash && \
+    export NVM_DIR="/root/.nvm" && \
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
+    nvm install node
+
+# Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer creates=/usr/local/bin/composer
 RUN /usr/local/bin/composer global require "fxp/composer-asset-plugin:~1.1.1"

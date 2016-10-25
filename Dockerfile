@@ -48,4 +48,5 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer creates=/usr/local/bin/composer
-RUN /usr/local/bin/composer global require "fxp/composer-asset-plugin:~1.1.1"
+RUN php /usr/local/bin/composer global require "fxp/composer-asset-plugin:~1.1.1"
+RUN php /usr/local/bin/composer global require "hirak/prestissimo:^0.3"

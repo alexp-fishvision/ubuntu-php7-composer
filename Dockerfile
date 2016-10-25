@@ -30,7 +30,8 @@ RUN apt-get update && \
     php7.0-intl \
     php7.0-mcrypt \
     php7.0-mbstring \
-    php7.0-zip
+    php7.0-zip \
+    php-xdebug
 RUN apt-get clean
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer creates=/usr/local/bin/composer
 RUN /usr/local/bin/composer global require "fxp/composer-asset-plugin:~1.1.1"

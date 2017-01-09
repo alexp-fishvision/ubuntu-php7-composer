@@ -34,6 +34,7 @@ RUN apt-get update
 # Install python
 RUN apt-get install -y python2.7
 RUN apt-get install -y python-pip
+RUN pip install --upgrade pip
 
 # Install PHP
 RUN apt-get -y install \

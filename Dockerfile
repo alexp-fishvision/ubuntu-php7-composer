@@ -17,7 +17,23 @@ RUN apt-get -y install wget \
     libssl-dev \
     vim \
     nano \
-    openssh-client
+    openssh-client \
+    libreadline-gplv2-dev \
+    libncursesw5-dev \
+    libsqlite3-dev \
+    tk-dev \
+    libgdbm-dev \
+    libc6-dev \
+    libbz2-dev \
+    software-properties-common
+
+# Add repos
+RUN add-apt-repository ppa:fkrull/deadsnakes
+RUN apt-get update
+
+# Install python
+RUN apt-get install python2.7
+RUN apt-get install python-pip
 
 # Install PHP
 RUN apt-get -y install \
@@ -54,7 +70,7 @@ RUN apt-get clean
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash && \
     export NVM_DIR="/root/.nvm" && \
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
-    nvm install 4.6 lts
+    nvm install 6.9 lts
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer creates=/usr/local/bin/composer

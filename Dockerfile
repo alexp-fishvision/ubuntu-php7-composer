@@ -38,30 +38,30 @@ RUN pip install --upgrade pip
 
 # Install PHP
 RUN apt-get -y install \
-    php7.0 \
-    php7.0-cgi \
-    php7.0-cli \
-    php7.0-common \
-    php7.0-curl \
-    php7.0-dev \
-    php7.0-gd \
-    php7.0-gmp \
-    php7.0-json \
-    php7.0-ldap \
-    php7.0-mysql \
-    php7.0-odbc \
-    php7.0-opcache \
-    php7.0-pspell \
-    php7.0-readline \
-    php7.0-sqlite3 \
-    php7.0-tidy \
-    php7.0-xmlrpc \
-    php7.0-xsl \
-    php7.0-fpm \
-    php7.0-intl \
-    php7.0-mcrypt \
-    php7.0-mbstring \
-    php7.0-zip \
+    php7.1 \
+    php7.1-cgi \
+    php7.1-cli \
+    php7.1-common \
+    php7.1-curl \
+    php7.1-dev \
+    php7.1-gd \
+    php7.1-gmp \
+    php7.1-json \
+    php7.1-ldap \
+    php7.1-mysql \
+    php7.1-odbc \
+    php7.1-opcache \
+    php7.1-pspell \
+    php7.1-readline \
+    php7.1-sqlite3 \
+    php7.1-tidy \
+    php7.1-xmlrpc \
+    php7.1-xsl \
+    php7.1-fpm \
+    php7.1-intl \
+    php7.1-mcrypt \
+    php7.1-mbstring \
+    php7.1-zip \
     php-xdebug
 
 # Clean apt

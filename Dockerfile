@@ -29,6 +29,7 @@ RUN apt-get -y install wget \
 
 # Add repos
 RUN add-apt-repository ppa:fkrull/deadsnakes
+RUN apt-add-repository ppa:ondrej/php
 RUN apt-get update
 
 # Install python

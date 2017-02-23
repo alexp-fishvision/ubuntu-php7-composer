@@ -38,7 +38,7 @@ RUN apt-get install -y python-pip
 RUN pip install --upgrade pip
 
 # Install PHP
-RUN apt-get -y install \
+RUN apt-get -y --allow-unauthenticated install \
     php7.1 \
     php7.1-cgi \
     php7.1-cli \

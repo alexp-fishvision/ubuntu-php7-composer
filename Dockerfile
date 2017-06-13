@@ -25,11 +25,12 @@ RUN apt-get -y install wget \
     libgdbm-dev \
     libc6-dev \
     libbz2-dev \
-    software-properties-common
+    software-properties-common \
+    language-pack-en-base
 
 # Add repos
 RUN add-apt-repository ppa:fkrull/deadsnakes
-RUN apt-add-repository ppa:ondrej/php
+RUN LC_ALL=en_US.UTF-8 apt-add-repository ppa:ondrej/php
 RUN apt-get update
 
 # Install python

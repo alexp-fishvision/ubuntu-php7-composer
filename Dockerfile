@@ -26,7 +26,8 @@ RUN apt-get -y install wget \
     libc6-dev \
     libbz2-dev \
     software-properties-common \
-    language-pack-en-base
+    language-pack-en-base \
+    ansible
 
 # Add repos
 RUN add-apt-repository ppa:fkrull/deadsnakes

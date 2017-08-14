@@ -27,7 +27,12 @@ RUN apt-get -y install wget \
     libbz2-dev \
     software-properties-common \
     language-pack-en-base \
-    ansible
+    ansible \
+    apt-transport-https
+
+# Add Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # Add repos
 RUN add-apt-repository ppa:fkrull/deadsnakes
@@ -66,6 +71,9 @@ RUN apt-get -y --allow-unauthenticated install \
     php7.1-mbstring \
     php7.1-zip \
     php-xdebug
+
+# Install Yarn
+RUN apt-get -y install yarn --no-install-recommends
 
 # Clean apt
 RUN apt-get clean
